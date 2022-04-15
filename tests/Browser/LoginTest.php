@@ -17,7 +17,7 @@ class LoginTest extends DuskTestCase
     public function testLogin()
     {
         $this->browse(function(Browser $browser) {
-            $browser->visit('/admin/auth/login')
+            $browser->visit('https://develop.ko.edu.vn/v4/login')
                 ->type('username', "admin")
                 ->type('password', "admin")
                 ->click('button[type="submit"]')

@@ -1,5 +1,7 @@
 <?php
-
+if (!defined('ACTIVE')) {
+    define("ACTIVE", 1);
+}
 return [
 
     /*
