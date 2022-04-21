@@ -22,9 +22,16 @@ class UserTest extends TestCase
      */
     public function testStoreUser()
     {
+
+        // lấy và setup dữ liệu
         $factory = new UserFactory();
+
         $form    = new Form(new User());
         $input   = $factory->definition();
+
+        $this->assertArrayHasKey('email', $input);
+
+        $this->assertIsArray($input);
         $form->store($input);
         $this->assertDatabaseHas('users', [
             "email" => $input['email'],

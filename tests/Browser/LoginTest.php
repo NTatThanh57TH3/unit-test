@@ -17,11 +17,17 @@ class LoginTest extends DuskTestCase
     public function testLogin()
     {
         $this->browse(function(Browser $browser) {
-            $browser->visit('https://develop.ko.edu.vn/v4/login')
-                ->type('username', "admin")
-                ->type('password', "admin")
-                ->click('button[type="submit"]')
-                ->assertPathIs("admin");
+            $browser->visit('https://develop.ko.edu.vn/login')
+                ->type('username', "superadmin_dev")
+                ->type('password', "123456a")
+//                ->assertSee("als do not match our records.")
+                ->screenshot("Test".time())
+                ->visit('https://develop.ko.edu.vn/dashboard')
+                ->click('a[href=""https://develop.ko.edu.vn/school"]')
+                ->assertSee("als do not match our records.")
+                ->assertSee("als do not match our records.")
+                ->screenshot("Test".time());
+
         });
     }
 
